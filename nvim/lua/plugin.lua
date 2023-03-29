@@ -1,4 +1,4 @@
--- setup Lazy package manager
+-- Setup Lazy PM
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -12,9 +12,9 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- include plugins
+-- Install
 require("lazy").setup({
-  'folke/tokyonight.nvim',
+  'ellisonleao/gruvbox.nvim',
   'jiangmiao/auto-pairs',
   {
     'nvim-telescope/telescope.nvim', tag = '0.1.1',
@@ -25,15 +25,3 @@ require("lazy").setup({
   }
 })
 
--- nvim commands
-vim.cmd[[colorscheme tokyonight]]
-
-vim.cmd [[
-  function! QuickFixToggle()
-    if empty(filter(getwininfo(), 'v:val.quickfix'))
-      copen
-    else
-      cclose
-    endif
-  endfunction
-]]
