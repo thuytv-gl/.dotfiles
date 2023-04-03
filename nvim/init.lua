@@ -22,5 +22,3 @@ opt.softtabstop = 2
 require('plugin')
 require('cmd')
 require('keymaps')
-
-vim.cmd([[colorscheme gruvbox]])

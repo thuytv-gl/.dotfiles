@@ -26,6 +26,8 @@ map('n', '<C-l>', '<C-w>l', {})
 map('n', '<C-h>', '<C-w>h', {})
 map('n', '<C-j>', '<C-w>j', {})
 map('n', '<C-k>', '<C-w>k', {})
+map('n', '<C-]>', '<cmd> vertical resize +10 <CR>', {})
+map('n', '<C-[>', '<cmd> vertical resize -10 <CR>', {})
 
 -- Quickfix
 map('n', '<C-q>', '<cmd> call QuickFixToggle() <CR>', {})

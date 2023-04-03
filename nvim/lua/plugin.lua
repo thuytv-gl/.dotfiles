@@ -22,6 +22,7 @@ require("lazy").setup({
       'nvim-lua/plenary.nvim',
       'BurntSushi/ripgrep'
     }
-  }
+  },
 })
 
+vim.cmd([[colorscheme gruvbox]])
