@@ -15,10 +15,19 @@ autocmd('TextYankPost', {
 
 augroup('htmlSyntax', { clear = true })
 autocmd({ 'BufNewFile', 'BufRead' }, {
-  group = 'htmlSyntax',
   pattern = { '*.svelte' },
   command = 'set syntax=html'
 })
+
+augroup('htmlSyntax', { clear = true })
+-- dont list quickfix buffers
+autocmd("FileType", {
+  pattern = "qf",
+  callback = function()
+    vim.opt_local.buflisted = false
+  end,
+})
+
 
 vim.cmd [[
   function! QuickFixToggle()

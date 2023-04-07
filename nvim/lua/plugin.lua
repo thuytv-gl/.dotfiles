@@ -23,6 +23,10 @@ require("lazy").setup({
       'BurntSushi/ripgrep'
     }
   },
+  {
+    "williamboman/mason.nvim",
+    opt = {}
+  }
 })
 
-vim.cmd([[colorscheme gruvbox]])
+require('mason').setup();

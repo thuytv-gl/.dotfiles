@@ -32,3 +32,6 @@ map('n', '<C-[>', '<cmd> vertical resize -10 <CR>', {})
 -- Quickfix
 map('n', '<C-q>', '<cmd> call QuickFixToggle() <CR>', {})
 map('n', '<leader>e', '<cmd> call NetrwToggle() <CR>', {})
+
+-- Terminal
+map('t', '<Esc>', '<C-\\><C-n>', { noremap = true });
