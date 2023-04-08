@@ -21,7 +21,8 @@ telescope.setup {
         ["<C-k>"] = actions.move_selection_previous,
       },
       n = {
-        ['dd'] = actions.delete_buffer
+        ['dd'] = actions.delete_buffer,
+        ['qq'] = actions.close
       }
     },
   },
