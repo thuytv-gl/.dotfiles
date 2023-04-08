@@ -11,6 +11,7 @@ end
 local tree_cb = nvim_tree_config.nvim_tree_callback
 
 nvim_tree.setup {
+  hijack_netrw = true,
   update_focused_file = {
     enable = true,
     update_cwd = true,
@@ -54,7 +55,7 @@ nvim_tree.setup {
     },
   },
   view = {
-    width = 30,
+    width = 80,
     side = "left",
     mappings = {
       list = {
