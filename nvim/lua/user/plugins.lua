@@ -53,7 +53,6 @@ return packer.startup(function(use)
   use { "moll/vim-bbye", commit = "25ef93ac5a87526111f43e5110675032dbcacf56" }
   use { "nvim-lualine/lualine.nvim", commit = "a52f078026b27694d2290e34efa61a6e4a690621" }
   use { "lewis6991/impatient.nvim", commit = "b842e16ecc1a700f62adb9802f8355b99b52a5a6" }
-  use { "lukas-reineke/indent-blankline.nvim", commit = "db7cbcb40cc00fc5d6074d7569fb37197705e7f6" }
   use { "goolord/alpha-nvim", commit = "0bb6fc0646bcd1cdb4639737a1cee8d6e08bcc31" }
 
   -- Colorschemes
@@ -85,11 +84,16 @@ return packer.startup(function(use)
   -- Treesitter
   use {
     "nvim-treesitter/nvim-treesitter",
-    commit = "8e763332b7bf7b3a426fd8707b7f5aa85823a5ac",
   }
 
   -- Git
   use { "lewis6991/gitsigns.nvim", commit = "f98c85e7c3d65a51f45863a34feb4849c82f240f" }
+
+  -- Markdown
+  use({
+    "iamcco/markdown-preview.nvim",
+    run = function() vim.fn["mkdp#util#install"]() end,
+  })
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

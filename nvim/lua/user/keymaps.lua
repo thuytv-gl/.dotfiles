@@ -24,13 +24,17 @@ keymap("n", "<leader>q", "<cmd>q!<CR>", opts)
 keymap("n", "<C-q>", "<cmd>call QuickFixToggle()<CR>", opts)
 keymap("n", "<esc>", "<esc>", opts)
 
+-- Curror movements
+keymap("n", "gh", "<S-^>", opts)
+keymap("n", "gl", "$", opts)
+
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
--- Resize with arrows
+-- Resize
 keymap("n", "<C-[>", ":resize -2<CR>", opts)
 keymap("n", "<C-]>", ":resize +2<CR>", opts)
 
@@ -61,6 +65,7 @@ keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 
 -- Telescope
 keymap("n", "<leader>f", ":Telescope find_files<CR>", opts)
+keymap("n", "<leader>ss", ":lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>", opts)
 keymap("n", "<leader>st", ":Telescope live_grep<CR>", opts)
 keymap("n", "<leader>sb", ":Telescope buffers<CR>", opts)
 

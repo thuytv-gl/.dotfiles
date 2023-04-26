@@ -1,0 +1,18 @@
+bindkey -v
+
+alias c="xclip"
+alias v="xclip -o"
+alias tdil="cd ~/Work/today-i-learnt && lvim README.md"
+alias efis="cd ~/Study/efis-gt159 && nvim"
+alias open="xdg-open $@ &"
+alias zd="cd ~ && cd \$(find * -type d | fzf)"
+
+source /usr/share/fzf/completion.zsh
+source /usr/share/fzf/key-bindings.zsh
+
+# bun completions
+[ -s "/home/thuytv/.bun/_bun" ] && source "/home/thuytv/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
