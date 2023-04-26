@@ -12,6 +12,6 @@ require "user.nvim-tree"
 require "user.lualine"
 require "user.alpha"
 require "user.lsp"
+require "user.colorscheme"
 
 -- require "user.treesitter"
--- require "user.colorscheme"
