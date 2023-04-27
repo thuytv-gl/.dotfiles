@@ -6,6 +6,7 @@ alias tdil="cd ~/Work/today-i-learnt && lvim README.md"
 alias efis="cd ~/Study/efis-gt159 && nvim"
 alias open="xdg-open $@ &"
 alias zd="cd ~ && cd \$(find * -type d | fzf)"
+alias vim="vim"
 
 source /usr/share/fzf/completion.zsh
 source /usr/share/fzf/key-bindings.zsh
