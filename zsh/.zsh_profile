@@ -2,11 +2,10 @@ bindkey -v
 
 alias c="xclip"
 alias v="xclip -o"
-alias tdil="cd ~/Work/today-i-learnt && lvim README.md"
+alias tdil="cd ~/Work/today-i-learnt && nvim README.md"
 alias efis="cd ~/Study/efis-gt159 && nvim"
 alias open="xdg-open $@ &"
-alias zd="cd ~ && cd \$(find * -type d | fzf)"
-alias vim="vim"
+alias vim="nvim"
 
 source /usr/share/fzf/completion.zsh
 source /usr/share/fzf/key-bindings.zsh
@@ -17,3 +16,9 @@ source /usr/share/fzf/key-bindings.zsh
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+function zd() {
+  local search_root="${1:=$HOME}"
+  local destination=$(find $search_root -maxdepth 4 -type d | fzf)
+  [[ -n $destination ]] && cd $destination
+}
