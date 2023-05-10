@@ -18,6 +18,6 @@ source /usr/share/fzf/key-bindings.zsh
 
 function zd() {
   local dir="${1:=$HOME}"
-  local found=$(fd . -E 'node_modules' -E '.git' -t d $dir | fzf)
+  local found=$(fd . -H -E 'node_modules' -E '.git' -t d $dir | fzf)
   [[ -n $found ]] && cd $found
 }

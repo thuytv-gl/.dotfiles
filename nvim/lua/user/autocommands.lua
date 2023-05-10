@@ -47,4 +47,6 @@ vim.cmd [[
   endfunction
 ]]
 
+-- cd to current buffer's directory
+vim.cmd[[command Cd :cd %:p:h]]
 
