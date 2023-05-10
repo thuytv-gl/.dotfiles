@@ -1,3 +1,5 @@
+export PATH=$HOME/.bun/bin:$HOME/.emacs.d/bin:$PATH
+
 bindkey -v
 
 alias c="xclip"
@@ -6,6 +8,7 @@ alias tdil="cd ~/Work/today-i-learnt && nvim README.md"
 alias efis="cd ~/Study/efis-gt159 && nvim"
 alias open="xdg-open $@ &"
 alias vim="nvim"
+alias emacs="emacsclient -a '/usr/bin/emacs' -nw"
 
 source /usr/share/fzf/completion.zsh
 source /usr/share/fzf/key-bindings.zsh
@@ -13,12 +16,8 @@ source /usr/share/fzf/key-bindings.zsh
 # bun completions
 [ -s "/home/thuytv/.bun/_bun" ] && source "/home/thuytv/.bun/_bun"
 
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
 function zd() {
-  local search_root="${1:=$HOME}"
-  local destination=$(find $search_root -maxdepth 4 -type d | fzf)
-  [[ -n $destination ]] && cd $destination
+  local dir="${1:=$HOME}"
+  local found=$(fd . -E 'node_modules' -E '.git' -t d $dir | fzf)
+  [[ -n $found ]] && cd $found
 }

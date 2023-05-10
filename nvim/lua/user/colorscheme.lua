@@ -7,4 +7,4 @@ end
 
 -- match the colors of buffer end with current color scheme
 pcall(vim.cmd.highlight,'EndOfBuffer guibg=', colorscheme)
-pcall(vim.cmd.highlight,'MatchParen', 'ctermbg=green guibg=brow guifg=brown')
+pcall(vim.cmd.highlight,'MatchParen', 'guibg=lightbrown guifg=red')

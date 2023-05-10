@@ -23,6 +23,7 @@ keymap("n", "<leader>c", "<cmd>Bdelete!<CR>", opts)
 keymap("n", "<leader>q", "<cmd>q!<CR>", opts)
 keymap("n", "<C-q>", "<cmd>call QuickFixToggle()<CR>", opts)
 keymap("n", "<esc>", "<esc>", opts)
+keymap("n", "<leader>rl", "*cgn", opts)
 
 -- Curror movements
 keymap("n", "gh", "<S-^>", opts)
