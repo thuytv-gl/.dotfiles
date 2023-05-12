@@ -50,3 +50,12 @@ vim.cmd [[
 -- cd to current buffer's directory
 vim.cmd[[command Cd :cd %:p:h]]
 
+vim.cmd [[
+  function! NetrwToggle()
+    if &ft ==# "netrw"
+      Rex
+    else
+      Ex
+    endif
+  endfunction
+]]

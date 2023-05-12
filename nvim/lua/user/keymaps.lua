@@ -23,7 +23,7 @@ keymap("n", "<leader>c", "<cmd>Bdelete!<CR>", opts)
 keymap("n", "<leader>q", "<cmd>q!<CR>", opts)
 keymap("n", "<C-q>", "<cmd>call QuickFixToggle()<CR>", opts)
 keymap("n", "<esc>", "<esc>", opts)
-keymap("n", "<leader>rl", "*cgn", opts)
+keymap("n", "<leader>rr", "*cgn", opts)
 
 -- Curror movements
 keymap("n", "gh", "<S-^>", opts)
@@ -62,7 +62,9 @@ keymap("v", ">", ">gv", opts)
 -- Plugins --
 
 -- NvimTree
-keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
+-- keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
+keymap("n", "<leader>e", ":call NetrwToggle()<CR>", opts)
+
 
 -- Telescope
 keymap("n", "<leader>f", ":Telescope find_files<CR>", opts)
