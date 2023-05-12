@@ -1,0 +1,120 @@
+{
+  "javascript.validate.enable": false,
+  "typescript.validate.enable": false,
+  "typescript.tsserver.watchOptions": {
+    "watchFile": "fixedPollingInterval",
+  },
+  "typescript.tsserver.useSyntaxServer": "never",
+  "editor.lineNumbers": "relative",
+  "editor.fontSize": 12,
+  "editor.fontFamily": "'JetBrainsMono Nerd Font Mono'",
+  "editor.tabSize": 2,
+  "vim.foldfix": true,
+  "vim.enableNeovim": true,
+  "vim.handleKeys": {
+    "<C-f>": false,
+    "<C-j>": false,
+    "<C-[>": false,
+    "<C-]>": false,
+  },
+  "vim.timeout": 130,
+  "vim.leader": " ",
+  "vim.easymotion": true,
+  "vim.useSystemClipboard": true,
+  "vim.statusBarColorControl": false,
+  "editor.rulers": [{ "column": 100, "color": "#DC2626" }],
+  "vim.normalModeKeyBindings": [
+    {
+      "before": [
+        "leader",
+        "w"
+      ],
+      "commands": [
+        "workbench.action.files.save"
+      ]
+    },
+    {
+      "before": [
+        "leader",
+        "c"
+      ],
+      "commands": [
+        "workbench.action.closeActiveEditor"
+      ]
+    },
+    {
+      "before": [
+        "leader",
+        "e"
+      ],
+      "commands": [
+        "workbench.action.toggleSidebarVisibility"
+      ]
+    },
+    {
+      "before": [
+        "leader",
+        "f"
+      ],
+      "commands": [
+        "workbench.action.quickOpen"
+      ]
+    },
+    {
+      "before": [
+        "leader",
+        "p"
+      ],
+      "commands": [
+        "editor.action.peekDefinition"
+      ]
+    }
+  ],
+  "vim.insertModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "j",
+        "k"
+      ],
+      "commands": [
+        "extension.vim_escape"
+      ]
+    },
+    {
+      "before": [
+        "k",
+        "j"
+      ],
+      "commands": [
+        "extension.vim_escape"
+      ]
+    }
+  ],
+  "vim.visualModeKeyBindings": [
+    {
+      "before": [
+        ">",
+      ],
+      "commands": [
+        "editor.action.indentLines"
+      ]
+    },
+    {
+      "before": [
+        "<",
+      ],
+      "commands": [
+        "editor.action.outdentLines"
+      ]
+    }
+  ],
+  "workbench.startupEditor": "none",
+  "terminal.integrated.defaultProfile.windows": "Git Bash",
+  "diffEditor.ignoreTrimWhitespace": false,
+  "git.autorefresh": false,
+  "gitlens.views.repositories.autoRefresh": false,
+  "gitlens.hovers.currentLine.over": "line",
+  "editor.minimap.enabled": false,
+  "window.newWindowDimensions": "inherit",
+  "workbench.colorTheme": "Visual Studio Dark",
+}
