@@ -59,3 +59,6 @@ vim.cmd [[
     endif
   endfunction
 ]]
+
+vim.cmd("vsplit")
+

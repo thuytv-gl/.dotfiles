@@ -56,7 +56,8 @@ return packer.startup(function(use)
   use { "goolord/alpha-nvim", commit = "0bb6fc0646bcd1cdb4639737a1cee8d6e08bcc31" }
 
   -- Colorschemes
-  -- use { "ellisonleao/gruvbox.nvim" }
+  use { "ellisonleao/gruvbox.nvim" }
+  use { "folke/tokyonight.nvim" }
 
   -- cmp plugins
   use { "hrsh7th/nvim-cmp" } -- The completion plugin

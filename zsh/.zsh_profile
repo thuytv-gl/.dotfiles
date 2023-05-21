@@ -8,7 +8,7 @@ alias tdil="cd ~/Work/today-i-learnt && nvim README.md"
 alias efis="cd ~/Study/efis-gt159 && nvim"
 alias open="xdg-open $@ &"
 alias vim="nvim"
-alias emacs="emacsclient -a '/usr/bin/emacs' -nw"
+# alias emacs="emacs -mm $@ &"
 
 source /usr/share/fzf/completion.zsh
 source /usr/share/fzf/key-bindings.zsh
