@@ -48,7 +48,7 @@ vim.cmd [[
 ]]
 
 -- cd to current buffer's directory
-vim.cmd[[command Cd :cd %:p:h]]
+vim.cmd[[command! Cd :cd %:p:h]]
 
 vim.cmd [[
   function! NetrwToggle()
@@ -59,6 +59,19 @@ vim.cmd [[
     endif
   endfunction
 ]]
-
 vim.cmd("vsplit")
+
+vim.cmd [[
+function! GrepQuickFix(pat)
+  let all = getqflist()
+  for d in all
+    if bufname(d['bufnr']) !~ a:pat && d['text'] !~ a:pat
+        call remove(all, index(all,d))
+    endif
+  endfor
+  call setqflist(all)
+endfunction
+]]
+
+vim.cmd[[command! -nargs=* Gqf call GrepQuickFix(<q-args>)]]
 
