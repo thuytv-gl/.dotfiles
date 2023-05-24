@@ -200,7 +200,6 @@ bar {
 
 # send extended screen to the left
 exec --no-startup-id xrandr --output HDMI-1 --auto --left-of eDP-1
-exec --no-startup-id feh $HOME/.dotfiles/i3/screenlock-01.png 
 
 bindsym Mod4+Mod1+l exec i3lock -t -e -i $HOME/.dotfiles/i3/screenlock-01.png -c "#000000" 
 bindsym Mod4+Mod1+x exec i3-msg exit
