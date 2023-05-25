@@ -107,7 +107,8 @@ bindsym $mod+e layout toggle split
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+# am using this combo to toggle ibus input method
+# bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -156,8 +157,6 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -200,7 +199,16 @@ bar {
 
 # send extended screen to the left
 exec --no-startup-id xrandr --output HDMI-1 --auto --left-of eDP-1
-
-bindsym Mod4+Mod1+l exec i3lock -t -e -i $HOME/.dotfiles/i3/screenlock-01.png -c "#000000" 
-bindsym Mod4+Mod1+x exec i3-msg exit
+workspace_layout tabbed
 bindsym Mod1+f exec alacritty -e ranger
+
+mode "exit: [l]ock [x]logout, [r]eboot, [s]hutdown" {
+    bindsym l exec i3lock -t -e -i $HOME/.dotfiles/i3/screenlock-01.png -c "#000000" 
+    bindsym x exec i3-msg exit
+    bindsym r exec systemctl reboot
+    bindsym s exec systemctl shutdown
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+}
+
+bindsym $mod+x mode "exit: [l]ock [x]logout, [r]eboot, [s]hutdown"
