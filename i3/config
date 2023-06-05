@@ -190,7 +190,7 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3status
         tray_output primary
-        position top
+        position topbindsym --release button2 kill
 }
 
 ##################################
@@ -199,16 +199,19 @@ bar {
 
 # send extended screen to the left
 exec --no-startup-id xrandr --output HDMI-1 --auto --left-of eDP-1
+# manage volume in status bar
+exec --no-startup-id pa-applet
 workspace_layout tabbed
 bindsym Mod1+f exec alacritty -e ranger
 
 mode "exit: [l]ock [x]logout, [r]eboot, [s]hutdown" {
     bindsym l exec i3lock -t -e -i $HOME/.dotfiles/i3/screenlock-01.png -c "#000000" 
     bindsym x exec i3-msg exit
-    bindsym r exec systemctl reboot
-    bindsym s exec systemctl shutdown
+    bindsym r exec reboot
+    bindsym s exec poweroff
     bindsym Escape mode "default"
     bindsym Return mode "default"
 }
 
 bindsym $mod+x mode "exit: [l]ock [x]logout, [r]eboot, [s]hutdown"
+bindsym --release button2 kill
