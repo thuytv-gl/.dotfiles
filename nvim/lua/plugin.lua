@@ -17,7 +17,7 @@ require("lazy").setup({
   'ellisonleao/gruvbox.nvim',
   'jiangmiao/auto-pairs',
   {
-    'nvim-telescope/telescope.nvim', tag = '0.1.1',
+    'nvim-telescope/telescope.nvim', tag = '0.1.3',
     dependencies = {
       'nvim-lua/plenary.nvim',
       'BurntSushi/ripgrep'
