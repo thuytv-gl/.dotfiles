@@ -1,0 +1,13 @@
+[font.normal]
+family = "JetBrainsMono Nerd Font"
+style = "Regular"
+
+[shell]
+args = ['/C "E:\\programs\\msys64\\usr\\bin\\bash.exe"']
+program = "cmd.exe"
+
+[window]
+startup_mode = "Maximized"
+decorations = "Buttonless"
+dynamic_title = true
+padding = { x = 10, y = 10 }
