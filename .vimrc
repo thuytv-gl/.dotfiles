@@ -83,7 +83,7 @@ set wrap "Wrap lines
 "    means that you can undo even when you close a buffer/VIM
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 try
-    set undodir=~/.vim_runtime/temp_dirs/undodir
+    set undodir=~/.vim_runtime/tmp
     set undofile
 catch
 endtry
