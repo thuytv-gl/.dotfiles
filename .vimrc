@@ -113,8 +113,7 @@ map <leader>c <cmd> bdelete <cr>
 imap jk <esc>
 imap kj <esc>
 map <leader>w <cmd> w! <cr>
-map <S-p> "+p
-
+cmap <S-p> <C-r>+
 
 vmap p "_dP
 vmap < <gv
@@ -168,7 +167,7 @@ set go-=h
 set go-=L
 
 " Terminal
-nmap <C-t> <cmd> terminal <cr>
+nmap <C-t> <cmd> terminal C:\msys64\usr\bin\bash.exe <cr>
 tmap <esc><esc> <c-\><c-n>
 tmap <C-t> <c-\><c-n>:bdelete!<cr>
 tmap <S-p> <C-w>"+
