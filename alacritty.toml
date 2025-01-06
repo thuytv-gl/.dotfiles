@@ -1,0 +1,23 @@
+[font.normal]
+family = "JetBrainsMono Nerd Font"
+style = "Regular"
+
+[font]
+size = 10
+
+[[keyboard.bindings]]
+action = "CreateNewWindow"
+key = "N"
+mods = "Control | Shift"
+
+[shell]
+# args = ['/C "C:\\msys64\\usr\\bin\\bash.exe"']
+# program = "cmd.exe"
+# program = "C:\\msys64\\usr\\bin\\bash.exe"
+program = "C:\\msys64\\usr\\bin\\zsh.exe"
+args = []
+
+[window]
+startup_mode = "Maximized"
+# dynamic_title = false
+
