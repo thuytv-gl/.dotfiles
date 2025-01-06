@@ -1,0 +1,45 @@
+#!/bin/sh
+
+alias surecomp="cd /c/surecomp"
+
+rivo_root=/c/surecomp/rivo-ui-new
+rivo_packages=`ls $rivo_root`
+
+rivo_commit() {
+  echo "commit fomat: prefix(ticket-id): description"
+  echo "prefix = chore|feat|fix"
+  echo ""
+
+  read -p "perfix: "
+  local prefix=$REPLY
+
+  read -p "ticket: "
+  local ticket=$REPLY
+
+  read -p "desc: "
+  local desc=$REPLY
+
+  local commit_msg="$prefix($ticket): $desc"
+
+  echo $commit_msg;
+
+  exit 1
+}
+
+rivo() {
+  local package=$1
+
+  if [ -z "$package" ]
+    then
+      cd $rivo_root
+    else
+      cd $rivo_root/$package
+    fi
+}
+
+_rivo_autocomplete() {
+  local packages=`ls $rivo_root`
+}
+
+complete -W "$rivo_packages" rivo
+

@@ -1,0 +1,6 @@
+#!/bin/sh
+
+nersion() {
+  npm -v
+  yarn -v
+}

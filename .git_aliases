@@ -1,0 +1,51 @@
+#!/bin/sh
+
+alias gs="git status"
+alias gl="git log --oneline"
+alias gb="git branch $@"
+alias gc="git commit $@"
+alias gpl="git pull $@"
+alias gph="git push $@"
+alias gco="git checkout $@"
+alias gapply="git apply --verbose --ignore-space-change --ignore-whitespace $@"
+
+commit() {
+  if [ ! -d ".git" ]
+  then
+    echo "not a git repository"
+    return
+  fi
+
+  read -p "rename branch (y/n): " -n 1 -r
+  local rename_branch=$REPLY
+  echo
+
+  read -p "type (fix/feat/chore): " -r
+  local type=$REPLY
+
+  read -p "ticket: " -r
+  local ticket=$REPLY
+
+  read -p "desc: " -r
+  local desc=$REPLY
+
+  local commit_msg="$type($ticket): $desc"
+
+  echo $commit_msg
+
+  if [[ $rename_branch =~ ^[Yy]$ ]]
+  then
+    git branch -m "$type/$ticket"
+  fi
+  
+  git commit -m "$commit_msg"
+}
+
+gic() {
+  local branch=`git branch | fzf | sed 's/\*//' | xargs`
+  git checkout "$branch"
+}
+
+gib() {
+  git branch | fzf
+}
