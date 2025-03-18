@@ -10,7 +10,10 @@ action = "CreateNewWindow"
 key = "N"
 mods = "Control | Shift"
 
+[terminal.shell]
+program = "/usr/bin/zsh"
+args = []
+
 [window]
 startup_mode = "Maximized"
 # dynamic_title = false
-
