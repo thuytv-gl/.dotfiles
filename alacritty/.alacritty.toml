@@ -11,8 +11,7 @@ key = "N"
 mods = "Control | Shift"
 
 [terminal.shell]
-program = "/usr/bin/zsh"
-args = []
+program = "/usr/bin/tmux"
 
 [window]
 startup_mode = "Maximized"
