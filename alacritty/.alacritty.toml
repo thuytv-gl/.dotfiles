@@ -1,0 +1,16 @@
+[font.normal]
+family = "JetBrainsMono Nerd Font"
+style = "Regular"
+
+[font]
+size = 10
+
+[[keyboard.bindings]]
+action = "CreateNewWindow"
+key = "N"
+mods = "Control | Shift"
+
+[window]
+startup_mode = "Maximized"
+# dynamic_title = false
+
