@@ -78,6 +78,7 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 source ~/.zsh_profile
+source ~/.envrc
 
 # User configuration
 
@@ -104,3 +105,7 @@ source ~/.zsh_profile
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+
+# bun completions
+[ -s "/home/thuytv/.bun/_bun" ] && source "/home/thuytv/.bun/_bun"
