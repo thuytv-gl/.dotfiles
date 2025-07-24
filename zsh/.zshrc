@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/.config/composer/vendor/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -109,3 +109,7 @@ source ~/.envrc
 
 # bun completions
 [ -s "/home/thuytv/.bun/_bun" ] && source "/home/thuytv/.bun/_bun"
+source "$HOME/.cargo/env"
+
+alias lazy="NVIM_APPNAME=lazyvim nvim $@"
+alias ran="ranger --clean $@"
