@@ -2,12 +2,13 @@ export PATH=$HOME/.bun/bin:$HOME/.emacs.d/bin:$PATH
 
 bindkey -v
 
-alias c="xclip"
+alias c="xclip -selection clipboard"
 alias v="xclip -o"
 alias tdil="cd ~/Work/today-i-learnt && nvim README.md"
 alias efis="cd ~/Study/efis-gt159 && nvim"
 alias open="xdg-open $@ &"
-alias vim="nvim"
+alias vim="nvim -U NULL $@"
+alias thuydns="alacritty -o 'terminal.shell={program=\"/usr/bin/ssh\", args=[\"thuy@thuy-nas.ddns.net\"]}'"
 # alias emacs="emacs -mm $@ &"
 
 source /usr/share/fzf/completion.zsh

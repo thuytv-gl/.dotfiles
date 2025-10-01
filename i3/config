@@ -10,6 +10,7 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
+set $alt Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -36,10 +37,13 @@ exec --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+set $volumn_up exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
+set $volumn_down exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+
+bindsym XF86AudioRaiseVolume $volumn_up
+bindsym XF86AudioLowerVolume $volumn_down
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -54,11 +58,12 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+Return exec alacritty -e "/bin/zsh"
 
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+q kill
 
 # start dmenu (a program launcher)
 # bindsym $mod+d exec --no-startup-id dmenu_run
-bindsym $mod+d exec --no-startup-id rofi -show run
+bindsym $alt+r exec --no-startup-id rofi -show run
+bindsym $alt+space exec --no-startup-id rofi -show drun
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -188,24 +193,29 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
         tray_output primary
-        position topbindsym --release button2 kill
+        status_command i3status
+        position top
+
+        bindsym button4 $volumn_up
+        bindsym button5 $volumn_down
 }
 
 ##################################
 # MY CUSTOM CONFIG
 ##################################
+gaps inner 10
+exec --no-startup-id xrandr --output HDMI-1 --primary
+workspace 1 output primary
 
 # send extended screen to the left
 exec --no-startup-id xrandr --output HDMI-1 --auto --left-of eDP-1
-# manage volume in status bar
 exec --no-startup-id pa-applet
-workspace_layout tabbed
-bindsym Mod1+f exec alacritty -e ranger
+exec sh ~/.dotfiles/i3/scripts/wallpaper.sh "--load"
+exec --no-startup-id ibus-daemon -r -d
 
 mode "exit: [l]ock [x]logout, [r]eboot, [s]hutdown" {
-    bindsym l exec i3lock -t -e -i $HOME/.dotfiles/i3/screenlock-01.png -c "#000000" 
+    bindsym l exec i3lock -t -e -i $HOME/.dotfiles/i3/screenlock-01.png -c "#707070" & i3-msg 'mode "default"'
     bindsym x exec i3-msg exit
     bindsym r exec reboot
     bindsym s exec poweroff
@@ -214,4 +224,10 @@ mode "exit: [l]ock [x]logout, [r]eboot, [s]hutdown" {
 }
 
 bindsym $mod+x mode "exit: [l]ock [x]logout, [r]eboot, [s]hutdown"
-bindsym --release button2 kill
+bindsym --release button2 kill #kill it
+bindsym $alt+Control+q exec sh ~/.dotfiles/i3/scripts/lockscreen.sh
+bindsym $alt+Shift+p exec sh ~/.dotfiles/i3/scripts/wallpaper.sh
+bindsym $mod+Shift+s exec flameshot gui
+bindsym $alt+f exec alacritty -e ranger
+bindsym $alt+e exec nemo
+bindsym $alt+Shift+k exec sh ~/.dotfiles/i3/scripts/show-keys.sh

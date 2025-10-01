@@ -27,8 +27,9 @@ command-history=['systemctl poweroff -i', 'systemctl shutdown', 'powero', 'reboo
 desklet-snap-interval=25
 desktop-effects-workspace=false
 device-aliases=['/org/freedesktop/UPower/devices/battery_BAT0:=LGC 5B10W13930']
-enabled-applets=['panel1:left:0:menu@cinnamon.org:0', 'panel1:left:4:grouped-window-list@cinnamon.org:5', 'panel1:left:3:workspace-switcher@cinnamon.org:7', 'panel1:right:4:systray@cinnamon.org:10', 'panel1:right:6:removable-drives@cinnamon.org:12', 'panel1:right:7:network@cinnamon.org:13', 'panel1:right:8:sound@cinnamon.org:14', 'panel1:right:9:power@cinnamon.org:15', 'panel1:right:10:inhibit@cinnamon.org:16', 'panel1:center:0:calendar@cinnamon.org:17', 'panel1:right:12:user@cinnamon.org:18']
+enabled-applets=['panel1:left:0:menu@cinnamon.org:0', 'panel1:left:4:grouped-window-list@cinnamon.org:5', 'panel1:left:3:workspace-switcher@cinnamon.org:7', 'panel1:right:4:systray@cinnamon.org:10', 'panel1:right:6:removable-drives@cinnamon.org:12', 'panel1:right:7:network@cinnamon.org:13', 'panel1:right:8:sound@cinnamon.org:14', 'panel1:right:9:power@cinnamon.org:15', 'panel1:right:10:inhibit@cinnamon.org:16', 'panel1:center:0:calendar@cinnamon.org:17', 'panel1:right:12:user@cinnamon.org:18', 'panel2:left:0:grouped-window-list@cinnamon.org:22']
 enabled-desklets=@as []
+next-applet-id=23
 panel-edit-mode=false
 panel-zone-icon-sizes='[{"panelId":1,"left":16,"center":16,"right":16},{"left":0,"center":0,"right":0,"panelId":2}]'
 panel-zone-symbolic-icon-sizes='[{"panelId": 1, "left": 28, "center": 28, "right": 16}, {"left": 28, "center": 28, "right": 28, "panelId": 2}]'
