@@ -11,6 +11,8 @@
 
 set $mod Mod4
 set $alt Mod1
+set $monitor_0 HDMI-1
+set $monitor_1 eDP-1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -22,6 +24,10 @@ font pango:JetBrains Mono 10
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
+
+# exec --no-startup-id i3-msg 'workspace 1, move workspace to output primary'
+# exec --no-startup-id i3-msg 'workspace 2, move workspace to output $monitor_1'
+exec --no-startup-id xrandr --output $monitor_0  --primary --auto --left-of $monitor_1
 exec --no-startup-id dex --autostart --environment i3
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
@@ -29,7 +35,7 @@ exec --no-startup-id dex --autostart --environment i3
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id xss-lock --transfer-sleep-lock -- ~/.dotfiles/i3/scripts/lockscreen.sh
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -134,6 +140,9 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
+workspace $ws1 output $monitor_0
+workspace $ws2 output $monitor_1
+
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
@@ -205,17 +214,14 @@ bar {
 # MY CUSTOM CONFIG
 ##################################
 gaps inner 10
-exec --no-startup-id xrandr --output HDMI-1 --primary
-workspace 1 output primary
 
 # send extended screen to the left
-exec --no-startup-id xrandr --output HDMI-1 --auto --left-of eDP-1
 exec --no-startup-id pa-applet
 exec sh ~/.dotfiles/i3/scripts/wallpaper.sh "--load"
 exec --no-startup-id ibus-daemon -r -d
 
 mode "exit: [l]ock [x]logout, [r]eboot, [s]hutdown" {
-    bindsym l exec i3lock -t -e -i $HOME/.dotfiles/i3/screenlock-01.png -c "#707070" & i3-msg 'mode "default"'
+    bindsym l exec sh ~/.dotfiles/i3/scripts/lockscreen.sh & i3-msg 'mode "default"'
     bindsym x exec i3-msg exit
     bindsym r exec reboot
     bindsym s exec poweroff
