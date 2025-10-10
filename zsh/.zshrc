@@ -109,7 +109,6 @@ source ~/.envrc
 
 # bun completions
 [ -s "/home/thuytv/.bun/_bun" ] && source "/home/thuytv/.bun/_bun"
-source "$HOME/.cargo/env"
 
 alias lazy="NVIM_APPNAME=lazyvim nvim $@"
 alias ran="ranger --clean $@"

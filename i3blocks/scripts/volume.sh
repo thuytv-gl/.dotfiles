@@ -15,17 +15,17 @@ case $_button in
 
   "4")
     unmute
-    pactl set-sink-volume @DEFAULT_SINK@ +5%
+    pactl set-sink-volume @DEFAULT_SINK@ +1%
     ;;
 
   "5")
     unmute
-    pactl set-sink-volume @DEFAULT_SINK@ -5%
+    pactl set-sink-volume @DEFAULT_SINK@ -1%
     ;;
 esac
 
 if pactl get-sink-mute @DEFAULT_SINK@ | grep -q yes; then
   echo "♫ 0%"
 else
-  pactl get-sink-volume @DEFAULT_SINK@ | grep -Po '\d+(?=%)' | head -1 | awk '{print "♫ "$1"%"}';
+  pactl get-sink-volume @DEFAULT_SINK@ | grep -Po '\d+(?=%)' | head -1 | awk '{print "VOLUME: "$1"%"}';
 fi

@@ -200,13 +200,14 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
-
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
         tray_output primary
-        status_command i3blocks
+        status_command i3blocks -c /home/thuytran/.dotfiles/i3blocks/config
         position top
+
+        tray_padding 5
 }
 
 ##################################
@@ -219,7 +220,8 @@ exec --no-startup-id pa-applet
 exec sh ~/.dotfiles/i3/scripts/wallpaper.sh "--load"
 exec --no-startup-id ibus-daemon -r -d
 
-mode "exit: [l]ock [x]logout, [r]eboot, [s]hutdown" {
+set $mode_x "exit: [l]ock [x]logout, [r]eboot, [s]hutdown"
+mode $mode_x {
     bindsym l exec sh ~/.dotfiles/i3/scripts/lockscreen.sh & i3-msg 'mode "default"'
     bindsym x exec i3-msg exit
     bindsym r exec reboot
@@ -228,7 +230,7 @@ mode "exit: [l]ock [x]logout, [r]eboot, [s]hutdown" {
     bindsym Return mode "default"
 }
 
-bindsym $mod+x mode "exit: [l]ock [x]logout, [r]eboot, [s]hutdown"
+bindsym $mod+x mode $mode_x
 bindsym --release button2 kill #kill it
 bindsym $alt+Control+q exec sh ~/.dotfiles/i3/scripts/lockscreen.sh
 bindsym $alt+Shift+p exec sh ~/.dotfiles/i3/scripts/wallpaper.sh
@@ -236,3 +238,5 @@ bindsym $mod+Shift+s exec flameshot gui
 bindsym $alt+f exec alacritty -e ranger
 bindsym $alt+e exec nemo
 bindsym $alt+Shift+k exec sh ~/.dotfiles/i3/scripts/show-keys.sh
+
+exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle

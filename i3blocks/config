@@ -9,13 +9,13 @@ markup=none
 # Volume (PulseAudio)
 [volume]
 command=sh ~/.dotfiles/i3blocks/scripts/volume.sh
-min_width=♫ ?
+min_width=VOLUME: ?
 interval=once
 signal=10
 
 # Battery
 [battery]
-command=acpi -b | grep -o '[0-9]*%' | head -1 | awk '{print "🔋 "$1}'
+command=acpi -b | grep -o '[0-9]*%' | head -1 | awk '{print "BATTERY: "$1}'
 interval=30
 
 # CPU Load
@@ -25,25 +25,20 @@ interval=5
 
 # Memory
 [memory]
-command=free -h | awk '/^Mem:/ {print "MEM: "$3}'
+command=free -h | awk '/^Mem:/ {print "RAM: "$3}'
 interval=5
 
 # Disk Space
 [disk]
-command=df -h / | awk 'NR==2 {print "disk: "$4}'
+command=df -h / | awk 'NR==2 {print "DISK: "$4}'
 interval=30
 
 # Time and Date
 [date]
-command=date '+%d-%m-%Y'
+command=date '+%d/%m/%Y'
 interval=1
 
 # Time and Date
 [time]
 command=date '+%H:%M'
 interval=1
-
-# Time and Date
-[sep]
-interval=once
-command=echo ""
