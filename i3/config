@@ -48,10 +48,15 @@ set $volumn_down exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
 set $i3block_sig10 exec --no-startup-id pkill -SIGRTMIN+10 i3blocks
 set $unmute exec --no-startup-id pactl get-sink-mute @DEFAULT_SINK@ | grep -q yes && pactl set-sink-mute @DEFAULT_SINK@ toggle
 
+# https://wiki.linuxquestions.org/wiki/XF86_keyboard_symbols
+
 bindsym XF86AudioRaiseVolume $volumn_up; $unmute; $i3block_sig10
 bindsym XF86AudioLowerVolume $volumn_down; $unmute; $i3block_sig10
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle; $i3block_sig10
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle; $i3block_sig10
+
+bindsym XF86MonBrightnessDown exec brightnessctl s 10%-
+bindsym XF86MonBrightnessUp exec brightnessctl s +10%
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
