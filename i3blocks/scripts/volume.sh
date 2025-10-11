@@ -25,7 +25,7 @@ case $_button in
 esac
 
 if pactl get-sink-mute @DEFAULT_SINK@ | grep -q yes; then
-  echo "♫ 0%"
+  echo "VOLUME: 0%"
 else
   pactl get-sink-volume @DEFAULT_SINK@ | grep -Po '\d+(?=%)' | head -1 | awk '{print "VOLUME: "$1"%"}';
 fi

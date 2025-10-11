@@ -241,7 +241,8 @@ bindsym $alt+Control+q exec sh ~/.dotfiles/i3/scripts/lockscreen.sh
 bindsym $alt+Shift+p exec sh ~/.dotfiles/i3/scripts/wallpaper.sh
 bindsym $mod+Shift+s exec flameshot gui
 bindsym $alt+f exec alacritty -e ranger
-bindsym $alt+e exec nemo
+bindsym $alt+e exec nautilus
+bindsym $alt+b exec brave
 bindsym $alt+Shift+k exec sh ~/.dotfiles/i3/scripts/show-keys.sh
 
-exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ 0
