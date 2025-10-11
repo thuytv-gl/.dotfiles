@@ -15,12 +15,12 @@ case $_button in
 
   "4")
     unmute
-    pactl set-sink-volume @DEFAULT_SINK@ +1%
+    pactl set-sink-volume @DEFAULT_SINK@ +2%
     ;;
 
   "5")
     unmute
-    pactl set-sink-volume @DEFAULT_SINK@ -1%
+    pactl set-sink-volume @DEFAULT_SINK@ -2%
     ;;
 esac
 
