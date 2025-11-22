@@ -247,3 +247,5 @@ bindsym $alt+b exec brave
 bindsym $alt+Shift+k exec sh ~/.dotfiles/i3/scripts/show-keys.sh
 
 exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ 0
+
+for_window [class="Anki"] floating enable, move position center, resize set 900 900
